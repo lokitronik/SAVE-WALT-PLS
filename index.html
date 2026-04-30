@@ -3,8 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>$WALTPLS - SAVE WALT PLS</title>
+  <title>$WALTPLS | SAVE WALT PLS</title>
   <style>
+    :root {
+      --bg: #f7edd2;
+      --paper: #fffdf4;
+      --ink: #111111;
+      --green: #61c44d;
+      --acid: #9dff67;
+      --yellow: #ffd43b;
+      --blue: #39b8ff;
+      --red: #ff4b4b;
+      --sand: #e7c98e;
+      --shadow: 5px 5px 0 #111111;
+      --shadow-big: 8px 8px 0 #111111;
+      --radius: 16px;
+    }
+
     * {
       box-sizing: border-box;
     }
@@ -15,10 +30,19 @@
 
     body {
       margin: 0;
-      background: #fffdf2;
-      color: #050505;
-      font-family: Arial, Verdana, sans-serif;
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(57,184,255,0.16), transparent 20%),
+        radial-gradient(circle at 85% 25%, rgba(157,255,103,0.16), transparent 18%),
+        radial-gradient(circle at 15% 85%, rgba(255,212,59,0.22), transparent 20%),
+        linear-gradient(180deg, #f8f1d9 0%, #f3e4b8 100%);
       overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
     }
 
     a {
@@ -26,43 +50,81 @@
       text-decoration: none;
     }
 
-    .top-bar {
-      background: #ffe600;
-      border-bottom: 4px solid #050505;
+    .top-ticker {
+      background: var(--yellow);
+      border-bottom: 4px solid var(--ink);
       padding: 10px 14px;
       font-weight: 900;
-      text-align: center;
-      font-size: 15px;
-      letter-spacing: 0.5px;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .top-ticker span {
+      display: inline-block;
+      padding-left: 100%;
+      animation: ticker 18s linear infinite;
+    }
+
+    @keyframes ticker {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+
+    .warning-tape {
+      background:
+        repeating-linear-gradient(
+          -45deg,
+          #111111 0 14px,
+          #111111 14px 20px,
+          #ffd43b 20px 34px,
+          #ffd43b 34px 40px
+        );
+      height: 18px;
+      border-bottom: 3px solid var(--ink);
+      border-top: 3px solid var(--ink);
     }
 
     .page {
-      max-width: 1120px;
+      width: min(1180px, calc(100% - 24px));
       margin: 0 auto;
-      padding: 16px;
+      padding: 14px 0 28px;
     }
 
     .nav {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      gap: 12px;
-      margin-bottom: 18px;
+      justify-content: space-between;
+      gap: 14px;
       flex-wrap: wrap;
+      margin: 12px 0 18px;
     }
 
     .logo {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      font-family: "Comic Sans MS", Arial, sans-serif;
-      font-weight: 900;
-      font-size: 22px;
+      gap: 10px;
       background: white;
-      border: 3px solid #050505;
-      padding: 8px 12px;
-      box-shadow: 4px 4px 0 #050505;
+      border: 4px solid var(--ink);
+      box-shadow: var(--shadow);
+      padding: 10px 14px;
+      border-radius: 14px;
+      font-family: "Comic Sans MS", Arial, sans-serif;
+      font-size: 22px;
+      font-weight: 900;
       transform: rotate(-1deg);
+    }
+
+    .logo small {
+      display: inline-block;
+      background: var(--blue);
+      border: 2px solid var(--ink);
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      transform: rotate(2deg);
     }
 
     .nav-links {
@@ -73,197 +135,345 @@
 
     .nav-links a {
       background: white;
-      border: 2px solid #050505;
-      padding: 8px 10px;
+      border: 3px solid var(--ink);
+      box-shadow: 3px 3px 0 var(--ink);
+      padding: 9px 12px;
+      border-radius: 12px;
       font-size: 14px;
       font-weight: 800;
+      transform: rotate(0deg);
     }
 
     .hero {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 22px;
-      align-items: center;
-      background: #bdf4ff;
-      border: 5px solid #050505;
-      padding: 20px;
-      box-shadow: 8px 8px 0 #050505;
       position: relative;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 18px;
+      background: linear-gradient(180deg, #cbf1b3 0%, #9de97e 100%);
+      border: 5px solid var(--ink);
+      border-radius: 24px;
+      box-shadow: var(--shadow-big);
+      padding: 20px;
       overflow: hidden;
     }
 
-    .hero::before {
-      content: "$WALTPLS";
+    .hero::before,
+    .hero::after {
+      content: "";
       position: absolute;
-      right: -18px;
-      top: 24px;
-      background: #ff3b30;
-      color: white;
-      border: 3px solid #050505;
-      padding: 8px 18px;
+      inset: auto;
+      pointer-events: none;
+      opacity: 0.18;
+      border: 4px solid var(--ink);
+      transform: rotate(-18deg);
+    }
+
+    .hero::before {
+      width: 140px;
+      height: 140px;
+      background: var(--blue);
+      right: 60px;
+      top: -35px;
+      clip-path: polygon(50% 0%, 100% 40%, 82% 100%, 18% 100%, 0% 40%);
+    }
+
+    .hero::after {
+      width: 120px;
+      height: 120px;
+      background: var(--yellow);
+      left: -30px;
+      bottom: -20px;
+      border-radius: 28px;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: white;
+      border: 3px solid var(--ink);
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 12px;
       font-weight: 900;
-      transform: rotate(14deg);
+      text-transform: uppercase;
+      box-shadow: 3px 3px 0 var(--ink);
       font-family: "Comic Sans MS", Arial, sans-serif;
     }
 
-    .meme-label {
+    .badge.green { background: var(--acid); }
+    .badge.yellow { background: var(--yellow); }
+    .badge.blue { background: var(--blue); color: white; }
+    .badge.red { background: var(--red); color: white; }
+
+    .hero-copy {
+      position: relative;
+      z-index: 2;
+    }
+
+    .overline {
       display: inline-block;
-      background: #00ff66;
-      border: 3px solid #050505;
+      margin-bottom: 8px;
+      background: var(--yellow);
+      border: 3px solid var(--ink);
+      border-radius: 12px;
       padding: 7px 11px;
-      font-family: "Comic Sans MS", Arial, sans-serif;
       font-weight: 900;
-      box-shadow: 4px 4px 0 #050505;
-      margin-bottom: 12px;
+      font-family: "Comic Sans MS", Arial, sans-serif;
+      box-shadow: 4px 4px 0 var(--ink);
       transform: rotate(-2deg);
     }
 
     h1 {
       margin: 0;
-      font-family: Impact, "Arial Black", sans-serif;
-      font-size: clamp(52px, 12vw, 112px);
-      line-height: 0.9;
+      font-size: clamp(48px, 9vw, 96px);
+      line-height: 0.88;
       letter-spacing: 1px;
-      color: #ff1d1d;
-      text-shadow: 4px 4px 0 #ffe600, 7px 7px 0 #050505;
+      font-family: Impact, "Arial Black", sans-serif;
+      color: #0d0d0d;
+      text-shadow: 4px 4px 0 var(--yellow);
     }
 
-    .ticker {
-      margin: 12px 0 0;
-      font-size: clamp(30px, 8vw, 64px);
+    .ticker-name {
+      margin-top: 8px;
+      font-size: clamp(32px, 5vw, 58px);
       line-height: 1;
-      font-family: "Comic Sans MS", Arial, sans-serif;
       font-weight: 900;
-      color: #050505;
+      font-family: "Comic Sans MS", Arial, sans-serif;
+      color: #115e00;
     }
 
-    .subtitle {
+    .hero-lead {
+      margin: 16px 0 0;
+      font-size: 20px;
+      line-height: 1.42;
+      font-weight: 750;
       max-width: 620px;
-      margin: 18px 0 0;
-      font-size: 21px;
-      line-height: 1.3;
-      font-weight: 700;
+    }
+
+    .hero-mini {
+      margin-top: 12px;
+      display: inline-block;
+      background: white;
+      border: 3px dashed var(--ink);
+      border-radius: 14px;
+      padding: 10px 12px;
+      font-size: 15px;
+      font-weight: 800;
+      transform: rotate(-1deg);
     }
 
     .contract-box {
+      margin-top: 16px;
       display: flex;
       gap: 8px;
       align-items: center;
       flex-wrap: wrap;
-      margin-top: 18px;
       background: white;
-      border: 3px solid #050505;
+      border: 4px solid var(--ink);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
       padding: 10px;
-      font-family: monospace;
-      font-weight: 800;
-      word-break: break-all;
     }
 
-    .contract-placeholder {
+    .contract-title {
+      font-weight: 900;
+      font-size: 14px;
+      background: var(--yellow);
+      border: 2px solid var(--ink);
+      border-radius: 999px;
+      padding: 6px 10px;
+      white-space: nowrap;
+    }
+
+    .contract-text {
       flex: 1;
-      min-width: 180px;
+      min-width: 170px;
+      font-family: monospace;
       font-size: 13px;
+      font-weight: 800;
+      word-break: break-all;
     }
 
     .button-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 20px;
+      gap: 10px;
+      margin-top: 16px;
     }
 
-    button,
     .btn {
-      border: 4px solid #050505;
-      padding: 13px 18px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       min-height: 52px;
-      background: #ff1d1d;
-      color: white;
-      font-weight: 900;
-      font-size: 17px;
+      padding: 12px 16px;
+      border: 4px solid var(--ink);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
       font-family: "Comic Sans MS", Arial, sans-serif;
-      box-shadow: 5px 5px 0 #050505;
+      font-size: 16px;
+      font-weight: 900;
+      text-align: center;
       cursor: pointer;
       transition: transform 0.08s ease, box-shadow 0.08s ease;
-      text-align: center;
+      background: white;
     }
 
-    .btn.yellow,
-    button.yellow {
-      background: #ffe600;
-      color: #050505;
-    }
-
-    .btn.green,
-    button.green {
-      background: #00b84a;
-      color: white;
-    }
-
-    button:hover,
     .btn:hover {
       transform: translate(4px, 4px);
-      box-shadow: 1px 1px 0 #050505;
+      box-shadow: 1px 1px 0 var(--ink);
+    }
+
+    .btn.red { background: var(--red); color: white; }
+    .btn.blue { background: var(--blue); color: white; }
+    .btn.yellow { background: var(--yellow); }
+    .btn.green { background: var(--acid); }
+
+    .hero-art {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
     }
 
     .walt-card {
-      background: white;
-      border: 5px solid #050505;
-      padding: 12px;
-      text-align: center;
-      box-shadow: 6px 6px 0 #ff1d1d;
+      width: 100%;
+      background: var(--paper);
+      border: 5px solid var(--ink);
+      border-radius: 24px;
+      box-shadow: 7px 7px 0 var(--red);
+      padding: 14px;
+      position: relative;
       transform: rotate(1deg);
     }
 
-    .walt-svg {
+    .walt-card::before {
+      content: "very bald";
+      position: absolute;
+      top: -14px;
+      right: 18px;
+      background: var(--yellow);
+      border: 3px solid var(--ink);
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 12px;
+      font-family: "Comic Sans MS", Arial, sans-serif;
+      font-weight: 900;
+      transform: rotate(6deg);
+    }
+
+    .walt-img {
       width: 100%;
-      max-width: 350px;
-      display: block;
+      max-width: 430px;
+      height: auto;
       margin: 0 auto;
     }
 
     .caption {
-      display: inline-block;
       margin-top: 10px;
-      background: #ffe600;
-      border: 3px solid #050505;
+      display: inline-block;
+      background: var(--blue);
+      color: white;
+      border: 3px solid var(--ink);
+      border-radius: 12px;
       padding: 6px 10px;
+      font-size: 13px;
+      font-family: "Comic Sans MS", Arial, sans-serif;
+      font-weight: 900;
+      box-shadow: 3px 3px 0 var(--ink);
+    }
+
+    .sticker-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .sticker {
+      background: white;
+      border: 3px solid var(--ink);
+      border-radius: 12px;
+      padding: 7px 10px;
+      box-shadow: 3px 3px 0 var(--ink);
+      font-size: 12px;
       font-weight: 900;
       font-family: "Comic Sans MS", Arial, sans-serif;
     }
 
+    .sticker:nth-child(1) { transform: rotate(-6deg); background: var(--yellow); }
+    .sticker:nth-child(2) { transform: rotate(4deg); background: var(--acid); }
+    .sticker:nth-child(3) { transform: rotate(-3deg); background: white; }
+    .sticker:nth-child(4) { transform: rotate(5deg); background: var(--blue); color: white; }
+
     .section {
-      margin-top: 28px;
-      background: white;
-      border: 5px solid #050505;
+      margin-top: 22px;
+      background: var(--paper);
+      border: 5px solid var(--ink);
+      border-radius: 22px;
+      box-shadow: var(--shadow-big);
       padding: 20px;
-      box-shadow: 7px 7px 0 #050505;
-    }
-
-    .section.blue {
-      background: #bdf4ff;
-    }
-
-    .section.yellow {
-      background: #ffe600;
+      position: relative;
+      overflow: hidden;
     }
 
     .section.green {
-      background: #c8ff91;
+      background: linear-gradient(180deg, #fafff1 0%, #ebffd9 100%);
+    }
+
+    .section.yellow {
+      background: linear-gradient(180deg, #fff7d0 0%, #ffefb1 100%);
+    }
+
+    .section.blue {
+      background: linear-gradient(180deg, #eff9ff 0%, #d9f0ff 100%);
+    }
+
+    .section.sand {
+      background: linear-gradient(180deg, #fff8ea 0%, #f0dfb9 100%);
+    }
+
+    .section-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+
+    .section-tag {
+      display: inline-block;
+      background: var(--yellow);
+      border: 3px solid var(--ink);
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 12px;
+      font-weight: 900;
+      box-shadow: 3px 3px 0 var(--ink);
+      font-family: "Comic Sans MS", Arial, sans-serif;
     }
 
     h2 {
-      margin: 0 0 14px;
-      font-family: Impact, "Arial Black", sans-serif;
-      font-size: clamp(34px, 8vw, 58px);
-      color: #050505;
+      margin: 0;
+      font-size: clamp(30px, 5vw, 56px);
       line-height: 0.95;
+      font-family: Impact, "Arial Black", sans-serif;
     }
 
     .section p {
-      font-size: 19px;
+      margin: 0 0 12px;
+      font-size: 18px;
       line-height: 1.45;
-      margin: 0 0 14px;
       font-weight: 650;
     }
 
@@ -271,133 +481,172 @@
     .grid-3,
     .grid-4 {
       display: grid;
-      grid-template-columns: 1fr;
       gap: 14px;
-      margin-top: 16px;
+      margin-top: 14px;
+      grid-template-columns: 1fr;
     }
 
     .card {
       background: white;
-      border: 4px solid #050505;
+      border: 4px solid var(--ink);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
       padding: 16px;
-      box-shadow: 5px 5px 0 #050505;
     }
 
     .card h3 {
       margin: 0 0 8px;
-      font-family: "Comic Sans MS", Arial, sans-serif;
       font-size: 24px;
+      line-height: 1.05;
+      font-family: "Comic Sans MS", Arial, sans-serif;
       font-weight: 900;
     }
 
     .card p {
-      font-size: 17px;
       margin: 0;
+      font-size: 17px;
+      line-height: 1.4;
+      font-weight: 650;
     }
 
-    .pill {
+    .mini-tag {
       display: inline-block;
-      background: #ff1d1d;
-      color: white;
-      border: 2px solid #050505;
+      margin-bottom: 10px;
+      background: var(--acid);
+      border: 2px solid var(--ink);
+      border-radius: 999px;
       padding: 5px 8px;
       font-size: 12px;
       font-weight: 900;
-      margin-bottom: 10px;
-      transform: rotate(-2deg);
+      font-family: "Comic Sans MS", Arial, sans-serif;
     }
 
-    .tokenomics-row {
+    .tokenomics {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 10px;
-      margin-top: 16px;
+      gap: 12px;
+      margin-top: 14px;
     }
 
-    .token-item {
+    .token-row {
       display: grid;
-      grid-template-columns: 72px 1fr;
-      gap: 10px;
+      grid-template-columns: 80px 1fr;
+      gap: 12px;
       align-items: center;
       background: white;
-      border: 3px solid #050505;
+      border: 4px solid var(--ink);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
       padding: 12px;
-      font-weight: 900;
     }
 
     .percent {
-      background: #ff1d1d;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 64px;
+      background: var(--blue);
       color: white;
-      border: 3px solid #050505;
-      padding: 8px;
-      text-align: center;
+      border: 3px solid var(--ink);
+      border-radius: 14px;
+      font-size: 26px;
       font-family: Impact, "Arial Black", sans-serif;
-      font-size: 24px;
+      font-weight: 900;
     }
+
+    .token-row:nth-child(2) .percent { background: var(--yellow); color: var(--ink); }
+    .token-row:nth-child(3) .percent { background: var(--acid); color: var(--ink); }
+    .token-row:nth-child(4) .percent { background: var(--red); }
+    .token-row:nth-child(5) .percent { background: #4f78ff; }
+    .token-row:nth-child(6) .percent { background: #ff8b3d; }
 
     .roadmap-step {
       position: relative;
     }
 
-    .roadmap-step::before {
+    .roadmap-step::after {
       content: "pls";
       position: absolute;
       top: -10px;
-      right: 10px;
-      background: #ffe600;
-      border: 2px solid #050505;
-      padding: 3px 6px;
+      right: 14px;
+      background: var(--yellow);
+      border: 2px solid var(--ink);
+      border-radius: 999px;
+      padding: 3px 8px;
       font-size: 12px;
+      font-family: "Comic Sans MS", Arial, sans-serif;
       font-weight: 900;
       transform: rotate(8deg);
     }
 
-    .warning-box {
-      background: #ff1d1d;
+    .quote {
+      font-style: italic;
+      background: var(--paper);
+      border: 4px dashed var(--ink);
+      border-radius: 18px;
+      padding: 14px;
+      margin-top: 12px;
+      font-size: 17px;
+      font-weight: 700;
+    }
+
+    .cta {
+      text-align: center;
+      background:
+        radial-gradient(circle at top right, rgba(57,184,255,0.2), transparent 28%),
+        linear-gradient(180deg, #b5ef97 0%, #8fe565 100%);
+    }
+
+    .cta h2 {
+      text-shadow: 3px 3px 0 var(--yellow);
+    }
+
+    .cta-big {
+      margin: 14px auto 0;
+      max-width: 720px;
+      font-size: 21px;
+      line-height: 1.4;
+      font-weight: 800;
+    }
+
+    .footer {
+      margin: 22px 0 8px;
+      background: #131313;
       color: white;
-      border: 5px solid #050505;
+      border: 5px solid var(--ink);
+      border-radius: 22px;
+      box-shadow: var(--shadow-big);
       padding: 18px;
+      font-size: 15px;
+      line-height: 1.55;
+    }
+
+    .footer strong {
+      color: var(--yellow);
+    }
+
+    .counter {
+      margin-top: 12px;
+      display: inline-block;
+      background: var(--yellow);
+      color: var(--ink);
+      border: 3px solid white;
+      border-radius: 12px;
+      padding: 7px 10px;
+      font-family: monospace;
       font-weight: 900;
       font-size: 18px;
-      line-height: 1.4;
     }
 
-    .final-cta {
-      text-align: center;
-      background: #ff1d1d;
-      color: white;
+    .blink {
+      animation: blink 0.95s steps(2, start) infinite;
     }
 
-    .final-cta h2 {
-      color: #ffe600;
-      text-shadow: 4px 4px 0 #050505;
-    }
-
-    .final-cta p {
-      font-size: 22px;
-    }
-
-    footer {
-      margin: 28px 0 10px;
-      border: 5px solid #050505;
-      background: #050505;
-      color: white;
-      padding: 20px;
-      font-size: 15px;
-      line-height: 1.5;
-    }
-
-    .tiny {
-      font-size: 13px;
-      opacity: 0.95;
+    @keyframes blink {
+      to { visibility: hidden; }
     }
 
     @media (min-width: 760px) {
-      .hero {
-        grid-template-columns: 1.15fr 0.85fr;
-        padding: 32px;
-      }
-
       .grid-2 {
         grid-template-columns: repeat(2, 1fr);
       }
@@ -410,238 +659,428 @@
         grid-template-columns: repeat(4, 1fr);
       }
 
-      .tokenomics-row {
+      .tokenomics {
         grid-template-columns: repeat(2, 1fr);
       }
     }
 
-    @media (max-width: 480px) {
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-art {
+        order: -1;
+      }
+
+      .walt-card {
+        max-width: 520px;
+        margin: 0 auto;
+      }
+    }
+
+    @media (max-width: 520px) {
       .page {
-        padding: 10px;
+        width: min(100% - 14px, 1180px);
+        padding-top: 10px;
+      }
+
+      .top-ticker {
+        font-size: 12px;
+      }
+
+      .logo {
+        font-size: 18px;
+        width: 100%;
+        justify-content: center;
+      }
+
+      .nav {
+        gap: 10px;
+      }
+
+      .nav-links {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .nav-links a {
+        text-align: center;
       }
 
       .hero,
-      .section {
-        padding: 15px;
+      .section,
+      .footer {
         border-width: 4px;
-        box-shadow: 5px 5px 0 #050505;
+        box-shadow: 5px 5px 0 var(--ink);
+        padding: 16px;
       }
 
       .button-row {
         flex-direction: column;
       }
 
-      .btn,
-      button {
+      .btn {
         width: 100%;
       }
 
-      .nav {
+      .contract-box {
         align-items: stretch;
       }
 
-      .nav-links {
+      .contract-title,
+      .contract-text {
         width: 100%;
       }
 
-      .nav-links a {
-        flex: 1;
-        text-align: center;
+      .token-row {
+        grid-template-columns: 68px 1fr;
       }
     }
   </style>
 </head>
 <body>
-  <div class="top-bar">
-    BREAKING: $WALTPLS is meme token. no lab coat need. pls behave or chart cry.
+  <div class="top-ticker">
+    <span>BREAKING: he cook. we pump. pls. • $WALTPLS is meme token for bald science man • blue mone maybe • chart not guarantee • very legal maybe • jessie buy pls • danger zone •</span>
   </div>
+  <div class="warning-tape"></div>
 
   <div class="page">
     <nav class="nav">
-      <div class="logo">🧪 $WALTPLS</div>
+      <div class="logo">
+        🧪 $WALTPLS
+        <small class="blink">SAVE WALT PLS</small>
+      </div>
+
       <div class="nav-links">
-        <a href="#about">About</a>
+        <a href="#about">What Dis</a>
+        <a href="#lore">Lore</a>
         <a href="#tokenomics">Tokenomics</a>
         <a href="#roadmap">Roadmap</a>
-        <a href="#disclaimer">Risk</a>
       </div>
     </nav>
 
-    <main class="hero">
-      <section>
-        <span class="meme-label">meme token. very seriuz. much bald.</span>
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="badge-row">
+          <span class="badge yellow">meme token</span>
+          <span class="badge blue">blue mone</span>
+          <span class="badge green">very pure maybe</span>
+          <span class="badge red">he cook</span>
+        </div>
+
+        <div class="overline">very seriuz bald project</div>
+
         <h1>SAVE<br>WALT<br>PLS</h1>
-        <div class="ticker">$WALTPLS</div>
-        <p class="subtitle">
-          most emotional unstable bald science meme coin on internet.
-          made for laugh, chaos, and pepl who whisper “pls” before buy top.
+        <div class="ticker-name">$WALTPLS</div>
+
+        <p class="hero-lead">
+          he cook. we pump.<br>
+          cursed meme coin for bald science man.<br>
+          not normal token. very emotional token.
         </p>
 
+        <div class="hero-mini">
+          he is not in danger.<br>
+          he is the memecoin.
+        </div>
+
         <div class="contract-box">
-          <strong>CA:</strong>
-          <span class="contract-placeholder" id="contractText">COMING_SOON_REPLACE_WITH_CONTRACT_ADDRESS</span>
-          <button class="yellow" onclick="copyContract()">COPY PLS</button>
+          <div class="contract-title">CA PLS</div>
+          <div class="contract-text" id="contractText">PASTE_YOUR_CONTRACT_ADDRESS_HERE</div>
+          <button class="btn yellow" onclick="copyContract()">COPY CA</button>
         </div>
 
         <div class="button-row">
-          <a class="btn" href="#buy">BUY $WALTPLS PLS</a>
-          <a class="btn yellow" href="#tokenomics">TOKENOMICS</a>
-          <a class="btn green" href="#disclaimer">NO FINANSHUL ADVISE</a>
+          <a class="btn red" href="#buy">BUY $WALTPLS</a>
+          <a class="btn blue" href="#tokenomics">TOKENOMICS</a>
+          <a class="btn green" href="#risk">NO FINANSHUL ADVISE</a>
         </div>
-      </section>
+      </div>
 
-      <section class="walt-card">
-        <svg class="walt-svg" viewBox="0 0 360 430" role="img" aria-label="cursed parody bald science man meme mascot">
-          <rect x="0" y="0" width="360" height="430" fill="#ffffff" />
-          <path d="M112 342 C120 275, 242 275, 252 342 L268 420 L92 420 Z" fill="#9cff74" stroke="#000" stroke-width="7" />
-          <path d="M122 342 L102 405" stroke="#000" stroke-width="7" />
-          <path d="M240 342 L260 405" stroke="#000" stroke-width="7" />
-          <path d="M88 180 C86 88, 142 36, 205 42 C274 48, 310 104, 296 193 C286 263, 241 310, 179 309 C120 308, 91 247, 88 180 Z" fill="#ffd9a1" stroke="#000" stroke-width="8" />
-          <circle cx="147" cy="162" r="32" fill="white" stroke="#000" stroke-width="7" />
-          <circle cx="232" cy="164" r="31" fill="white" stroke="#000" stroke-width="7" />
-          <circle cx="154" cy="169" r="7" fill="#000" />
-          <circle cx="224" cy="154" r="7" fill="#000" />
-          <path d="M179 161 C190 153, 198 153, 207 161" fill="none" stroke="#000" stroke-width="7" />
-          <path d="M113 145 C130 130, 153 128, 170 138" fill="none" stroke="#000" stroke-width="6" />
-          <path d="M211 137 C236 125, 259 132, 272 148" fill="none" stroke="#000" stroke-width="6" />
-          <path d="M183 174 C176 206, 172 218, 190 224" fill="none" stroke="#000" stroke-width="6" />
-          <path d="M143 239 C169 229, 210 230, 234 241" fill="none" stroke="#000" stroke-width="9" stroke-linecap="round" />
-          <path d="M154 266 C179 281, 211 281, 230 263" fill="none" stroke="#000" stroke-width="5" />
-          <path d="M79 368 C49 337, 49 300, 72 288" fill="none" stroke="#000" stroke-width="8" stroke-linecap="round" />
-          <circle cx="69" cy="285" r="12" fill="#ffd9a1" stroke="#000" stroke-width="5" />
-          <text x="180" y="402" text-anchor="middle" font-family="Comic Sans MS" font-size="28" font-weight="bold" fill="#000">buy pls</text>
-        </svg>
-        <div class="caption">ofishal not ofishal bald mascot</div>
-      </section>
-    </main>
+      <div class="hero-art">
+        <div class="walt-card">
+          <img
+            class="walt-img"
+            src="./FFB07F7A-BC69-42B3-B3B2-ECEA7E3C42B3.png"
+            alt="$WALTPLS bald meme mascot"
+          />
+          <div class="caption">ofishal not ofishal bald mascot</div>
+        </div>
 
-    <section id="about" class="section blue">
-      <h2>WHAT IS $WALTPLS??</h2>
+        <div class="sticker-grid">
+          <div class="sticker">100% pure meme</div>
+          <div class="sticker">tiny hat energy</div>
+          <div class="sticker">chart pls go up</div>
+          <div class="sticker">blue crystal aproved</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section green">
+      <div class="section-head">
+        <h2>WHAT DIS TOKEN??</h2>
+        <span class="section-tag">bald lore</span>
+      </div>
+
       <p>
-        $WALTPLS is pure meme token from internet chaos, bald science energy, and ancient human need to scream “pls” at chart.
+        $WALTPLS is meme token from internet chaos, blue crystal energy, desert pain,
+        and one bald man who maybe cook too much.
       </p>
       <p>
-        No fake utiliti. No fake promise. No seriuz face. Just cursed lil token with very emotional bald mascot.
+        No fake utiliti. No fake guru talk. No fake revolution.
+        Just meme, community, chart drama, and a mascot that look like he need hug and liquidity.
       </p>
+
       <div class="grid-3">
         <article class="card">
-          <span class="pill">simple</span>
-          <h3>Meme ferst</h3>
-          <p>Joke is product. Chart is drama. Community is lab. pls wear goggles.</p>
+          <span class="mini-tag">meme ferst</span>
+          <h3>he cook</h3>
+          <p>this token exist becuz somebody had to cook. not food. just meme and emotional volatility.</p>
         </article>
+
         <article class="card">
-          <span class="pill">clear</span>
-          <h3>No fake roadmap magik</h3>
-          <p>No “AI DeFi metaverse quantum wallet”. Just meme, comuniti and chaos maybe.</p>
+          <span class="mini-tag">series vibe</span>
+          <h3>blue mone</h3>
+          <p>blue crystal aesthetic, lab panic, danger face and tiny hat culture. u get the idea very fast.</p>
         </article>
+
         <article class="card">
-          <span class="pill">pls</span>
-          <h3>Made for degens</h3>
-          <p>If u buy, u know wat this is: meme coin. Not more. Not less. pls no pretend.</p>
+          <span class="mini-tag">clear enough</span>
+          <h3>meme coin only</h3>
+          <p>if u buy, u know wat dis is. meme coin. not holy grail. not retirement plan. pls behave.</p>
         </article>
+      </div>
+    </section>
+
+    <section id="lore" class="section sand">
+      <div class="section-head">
+        <h2>WHY SAVE WALT??</h2>
+        <span class="section-tag">he need support maybe</span>
+      </div>
+
+      <div class="grid-4">
+        <article class="card">
+          <span class="mini-tag">THE COOK</span>
+          <h3>he cook for family</h3>
+          <p>then internet say: what if we make token and turn pain into community event.</p>
+        </article>
+
+        <article class="card">
+          <span class="mini-tag">THE HAT</span>
+          <h3>tiny black hat</h3>
+          <p>small hat. big aura. maximum respect. maybe 14% extra danger.</p>
+        </article>
+
+        <article class="card">
+          <span class="mini-tag">THE BLUE</span>
+          <h3>blue crystal vibe</h3>
+          <p>not real crystal. just very iconic blue chaos for very unserious internet finance.</p>
+        </article>
+
+        <article class="card">
+          <span class="mini-tag">THE DANGER</span>
+          <h3>he not in danger</h3>
+          <p>he is the memecoin. chart open. emotions open. no one ready.</p>
+        </article>
+      </div>
+
+      <div class="quote">
+        “bald science man need chart support. world too cruel. pls send volume.”
       </div>
     </section>
 
     <section id="buy" class="section yellow">
-      <h2>HOW 2 BUY</h2>
+      <div class="section-head">
+        <h2>HOW 2 BUY</h2>
+        <span class="section-tag">pls read with eye</span>
+      </div>
+
       <div class="grid-4">
         <article class="card">
-          <h3>1. Get walet</h3>
-          <p>Install chain walet and prepare emotionaly.</p>
+          <span class="mini-tag">step 1</span>
+          <h3>get walet</h3>
+          <p>install ur chain wallet and prepare emotionaly for very bald future.</p>
         </article>
+
         <article class="card">
-          <h3>2. Add fund</h3>
-          <p>Only use mone u can lose without calling Jesse.</p>
+          <span class="mini-tag">step 2</span>
+          <h3>add fund</h3>
+          <p>only use mone u can lose without dramatic speech in desert.</p>
         </article>
+
         <article class="card">
-          <h3>3. Swap</h3>
-          <p>Paste contract adress and swap for $WALTPLS. check twice pls.</p>
+          <span class="mini-tag">step 3</span>
+          <h3>paste CA</h3>
+          <p>paste contract adress, verify it twice, then swap for $WALTPLS.</p>
         </article>
+
         <article class="card">
-          <h3>4. Hold or cri</h3>
-          <p>Chart go up. Chart go down. Bald man remain.</p>
+          <span class="mini-tag">step 4</span>
+          <h3>hold or cri</h3>
+          <p>chart go up. chart go down. bald man remain. this is token life.</p>
         </article>
       </div>
+
       <div class="button-row">
-        <a class="btn" href="#">DEX LINK SOON PLS</a>
-        <a class="btn green" href="#">CHART SOON MAYBE</a>
+        <a class="btn red" href="#">DEX LINK SOON PLS</a>
+        <a class="btn blue" href="#">CHART SOON MAYBE</a>
       </div>
     </section>
 
-    <section id="tokenomics" class="section green">
-      <h2>TOKENOMICS</h2>
-      <p>Simple enuf for Walt after 3 day no sleep.</p>
-      <div class="tokenomics-row">
-        <div class="token-item"><div class="percent">50%</div><div>Liquidity. Because token need place to emotionaly collapse.</div></div>
-        <div class="token-item"><div class="percent">15%</div><div>Marketing. Meme, raid, banner and bald propaganda.</div></div>
-        <div class="token-item"><div class="percent">10%</div><div>CEX / future liquidity. For later chaos expand.</div></div>
-        <div class="token-item"><div class="percent">10%</div><div>Community. Giveaway, contest and “pls save chart” moment.</div></div>
-        <div class="token-item"><div class="percent">10%</div><div>Burn / meme event. Sometimes lab must explode.</div></div>
-        <div class="token-item"><div class="percent">5%</div><div>Team. Two tired pepl and one questionable idea.</div></div>
+    <section id="tokenomics" class="section blue">
+      <div class="section-head">
+        <h2>TOKENOMICS</h2>
+        <span class="section-tag">science number</span>
+      </div>
+
+      <p>
+        simple enuf for pepl with one braincell and one dream.
+      </p>
+
+      <div class="tokenomics">
+        <div class="token-row">
+          <div class="percent">50%</div>
+          <div>
+            <strong>Liquidity</strong><br>
+            becuz token need place to emotionaly collapse.
+          </div>
+        </div>
+
+        <div class="token-row">
+          <div class="percent">15%</div>
+          <div>
+            <strong>Marketing</strong><br>
+            meme, raid, banner, bald propaganda.
+          </div>
+        </div>
+
+        <div class="token-row">
+          <div class="percent">10%</div>
+          <div>
+            <strong>CEX / future liquidity</strong><br>
+            for later chaos expand if gods allow.
+          </div>
+        </div>
+
+        <div class="token-row">
+          <div class="percent">10%</div>
+          <div>
+            <strong>Community</strong><br>
+            giveaway, contest and “pls save chart” moment.
+          </div>
+        </div>
+
+        <div class="token-row">
+          <div class="percent">10%</div>
+          <div>
+            <strong>Burn / meme event</strong><br>
+            sometimes lab must explode a bit.
+          </div>
+        </div>
+
+        <div class="token-row">
+          <div class="percent">5%</div>
+          <div>
+            <strong>Team</strong><br>
+            two tired pepl and one questionable idea.
+          </div>
+        </div>
       </div>
     </section>
 
-    <section id="roadmap" class="section blue">
-      <h2>ROADMAP</h2>
+    <section id="roadmap" class="section green">
+      <div class="section-head">
+        <h2>ROADMAP</h2>
+        <span class="section-tag">danger progres</span>
+      </div>
+
       <div class="grid-3">
         <article class="card roadmap-step">
-          <h3>Phase 1</h3>
-          <p>Launch websit, deploy token, publish contract, release bald creature.</p>
+          <span class="mini-tag">PHASE 1</span>
+          <h3>release bald creature</h3>
+          <p>make websit, deploy token, publish contract, open portal to meme damage.</p>
         </article>
+
         <article class="card roadmap-step">
-          <h3>Phase 2</h3>
-          <p>Meme, raid, comuniti grow, chart watch and emotional support.</p>
+          <span class="mini-tag">PHASE 2</span>
+          <h3>meme everywere</h3>
+          <p>raid socials, grow comuniti, spread sticker, watch chart, say “yo” sometimes.</p>
         </article>
+
         <article class="card roadmap-step">
-          <h3>Phase 3</h3>
-          <p>Listing, bigger campaign, more cursed content and maybe smol miracle.</p>
+          <span class="mini-tag">PHASE 3</span>
+          <h3>full bald dominance</h3>
+          <p>listing maybe, more art, more chaos, more lore, more completely unnecessary confidence.</p>
         </article>
       </div>
     </section>
 
-    <section class="section">
-      <h2>WHY SAVE WALT??</h2>
-      <div class="grid-2">
-        <article class="card">
-          <h3>Becuz he bald</h3>
-          <p>Market has been cruel to bald science man for too long.</p>
-        </article>
-        <article class="card">
-          <h3>Becuz he say pls</h3>
-          <p>Not many token have emotional honesty. This one beg direct.</p>
-        </article>
+    <section class="section sand cta">
+      <div class="section-head" style="justify-content:center;">
+        <h2>BUY BEFORE HANK ARRIVE</h2>
       </div>
-    </section>
 
-    <section id="disclaimer" class="section final-cta">
-      <h2>NO FINANCIAL ADVICE</h2>
-      <p>
-        $WALTPLS is meme token. It have no guarantee value, no promise, no safety net and no magical bald utiliti.
+      <p class="cta-big">
+        he cook for us.<br>
+        now u buy for him.<br><br>
+        $WALTPLS is not normal project.<br>
+        it is cursed cultural event for pepl who understand internet damage.
       </p>
-      <p>
-        Crypto risky. Meme coin very risky. Do ur own research and do not spend mone u cannot afford to lose.
-      </p>
+
       <div class="button-row" style="justify-content:center;">
-        <a class="btn yellow" href="#buy">I UNDERSTAND. SAVE WALT PLS NOW.</a>
+        <a class="btn red" href="#buy">BUY NOW PLS</a>
+        <a class="btn yellow" href="#about">LEARN DIS TOKEN</a>
       </div>
     </section>
 
-    <footer>
+    <section id="risk" class="section yellow">
+      <div class="section-head">
+        <h2>NO FINANSHUL ADVISE</h2>
+        <span class="section-tag">important legal thing</span>
+      </div>
+
+      <p>
+        $WALTPLS is meme token. it have no guarantee value, no promise, no safety net,
+        and no magical bald utiliti.
+      </p>
+      <p>
+        crypto risky. meme coin very risky. do ur own research and do not spend mone
+        u cannot afford to lose.
+      </p>
+      <div class="quote">
+        not affiliated with Breaking Bad, AMC, Sony, Walter White, Heisenberg or any official thing.
+        this is parody meme websit. calm down pls.
+      </div>
+    </section>
+
+    <footer class="footer">
       <strong>$WALTPLS</strong><br>
-      Parody meme token websit. Not affiliated with Breaking Bad, AMC, Sony, Walter White, Heisenberg, chemistry teacher, hat or emotional damaged chart.
+      parody meme token websit for bald science chaos. no real promise. no finanshul advise. meme responsibli.
       <br><br>
-      <span class="tiny">No real promise. No finanshul advise. Meme responsibli.</span>
+      support ur local meme goblin. verify contract before buy.
+      <br>
+      <div class="counter">VISITORS: 00042069</div>
     </footer>
   </div>
 
   <script>
     function copyContract() {
-      const text = document.getElementById("contractText").innerText;
-      navigator.clipboard.writeText(text).then(() => {
-        alert("contract copied. walt say pls verify before buy.");
-      }).catch(() => {
-        alert("copy fail. manual copy like ancient degen.");
-      });
+      const text = document.getElementById("contractText").innerText.trim();
+
+      if (!text || text === "PASTE_YOUR_CONTRACT_ADDRESS_HERE") {
+        alert("first put real CA pls.");
+        return;
+      }
+
+      navigator.clipboard.writeText(text)
+        .then(() => {
+          alert("CA copied. now verify twice pls.");
+        })
+        .catch(() => {
+          alert("copy fail. manual copy like ancient degen.");
+        });
     }
   </script>
 </body>
