@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SAVE WALT PLS</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: white;
+      color: black;
+      font-family: "Comic Sans MS", "Arial", sans-serif;
+      overflow-x: hidden;
+    }
+
+    .top-warning {
+      background: yellow;
+      border-bottom: 4px solid black;
+      padding: 10px 0;
+      font-family: "Times New Roman", serif;
+      font-size: 18px;
+      font-weight: bold;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .marquee-text {
+      display: inline-block;
+      padding-left: 100%;
+      animation: scrollText 18s linear infinite;
+    }
+
+    @keyframes scrollText {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+
+    .blink {
+      animation: blink 0.8s infinite;
+    }
+
+    @keyframes blink {
+      0%, 45% { opacity: 1; }
+      46%, 100% { opacity: 0; }
+    }
+
+    .page {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 12px;
+    }
+
+    .serius-label {
+      display: inline-block;
+      margin: 12px 0;
+      padding: 8px 12px;
+      background: red;
+      color: white;
+      border: 4px solid black;
+      font-size: 20px;
+      transform: rotate(-2deg);
+      box-shadow: 5px 5px 0 blue;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+      align-items: center;
+      background: #bdf4ff;
+      border: 5px solid black;
+      padding: 18px;
+      position: relative;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "pls";
+      position: absolute;
+      background: lime;
+      border: 3px solid black;
+      padding: 6px 10px;
+      font-weight: bold;
+      transform: rotate(12deg);
+    }
+
+    .hero::before {
+      top: 8px;
+      right: 10px;
+    }
+
+    .hero::after {
+      bottom: 8px;
+      left: 12px;
+      background: orange;
+      transform: rotate(-8deg);
+    }
+
+    h1 {
+      font-family: Impact, "Arial Black", sans-serif;
+      font-size: clamp(52px, 13vw, 120px);
+      line-height: 0.88;
+      margin: 10px 0;
+      color: red;
+      text-shadow: 5px 5px 0 yellow, 9px 9px 0 black;
+      letter-spacing: 2px;
+    }
+
+    h2 {
+      margin: 0 0 16px;
+      font-family: Impact, "Arial Black", sans-serif;
+      font-size: clamp(34px, 8vw, 62px);
+      color: blue;
+      text-shadow: 3px 3px 0 yellow;
+      letter-spacing: 1px;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(24px, 6vw, 44px);
+      line-height: 1.05;
+      font-weight: bold;
+    }
+
+    .tiny-drama {
+      margin-top: 16px;
+      font-size: 22px;
+      font-family: "Times New Roman", serif;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    button,
+    .fake-button {
+      cursor: pointer;
+      background: red;
+      color: white;
+      border: 4px solid black;
+      padding: 14px 18px;
+      font-family: "Comic Sans MS", Arial, sans-serif;
+      font-weight: bold;
+      font-size: 18px;
+      box-shadow: 5px 5px 0 black;
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+      min-height: 52px;
+    }
+
+    button:nth-child(2),
+    .fake-button:nth-child(2) {
+      background: blue;
+    }
+
+    button:nth-child(3),
+    .fake-button:nth-child(3) {
+      background: green;
+    }
+
+    button:hover,
+    .fake-button:hover {
+      transform: translate(4px, 4px) rotate(-1deg);
+      box-shadow: 1px 1px 0 black;
+    }
+
+    .walt-card {
+      background: white;
+      border: 5px solid black;
+      padding: 10px;
+      text-align: center;
+      transform: rotate(1deg);
+      position: relative;
+    }
+
+    .badge {
+      display: inline-block;
+      background: yellow;
+      border: 3px solid black;
+      padding: 5px 9px;
+      font-weight: bold;
+      font-size: 15px;
+      margin: 4px;
+    }
+
+    .badge.red { background: red; color: white; }
+    .badge.green { background: lime; }
+    .badge.blue { background: #39d8ff; }
+
+    .walt-svg {
+      width: 100%;
+      max-width: 380px;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .section {
+      margin-top: 22px;
+      padding: 18px;
+      border: 5px solid black;
+      background: white;
+      position: relative;
+    }
+
+    .section.blue {
+      background: #bdf4ff;
+    }
+
+    .section.yellow {
+      background: yellow;
+    }
+
+    .section.green {
+      background: #87ff87;
+    }
+
+    .ugly-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin: 18px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .ugly-list li {
+      background: white;
+      border: 3px solid black;
+      padding: 12px;
+      font-size: 20px;
+      font-weight: bold;
+      box-shadow: 4px 4px 0 blue;
+    }
+
+    .story-grid,
+    .support-grid,
+    .testimonials {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    .story-text p {
+      font-size: 22px;
+      line-height: 1.2;
+      margin: 0 0 14px;
+    }
+
+    .fact-box,
+    .quote-box,
+    .support-card,
+    .donation-box {
+      background: white;
+      border: 4px solid black;
+      padding: 14px;
+      box-shadow: 6px 6px 0 black;
+    }
+
+    .fact-box {
+      background: lime;
+      transform: rotate(2deg);
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .donation-box {
+      margin-top: 14px;
+      background: #bdf4ff;
+    }
+
+    .money {
+      font-size: 30px;
+      font-weight: bold;
+      color: red;
+      text-shadow: 2px 2px 0 yellow;
+      margin: 8px 0;
+    }
+
+    .progress-wrap {
+      background: white;
+      border: 4px solid black;
+      height: 34px;
+      overflow: hidden;
+      margin: 12px 0;
+    }
+
+    .progress-fill {
+      width: 4%;
+      height: 100%;
+      background: lime;
+      border-right: 4px solid black;
+      animation: sadProgress 2.5s infinite alternate;
+    }
+
+    @keyframes sadProgress {
+      from { width: 2%; }
+      to { width: 5%; }
+    }
+
+    .quote-box h3,
+    .support-card h3 {
+      margin: 0 0 10px;
+      font-family: Impact, "Arial Black", sans-serif;
+      font-size: 28px;
+      color: red;
+    }
+
+    .quote-box p,
+    .support-card p {
+      margin: 0;
+      font-size: 20px;
+      line-height: 1.25;
+    }
+
+    .support-card:nth-child(2) h3,
+    .quote-box:nth-child(2) h3 {
+      color: blue;
+    }
+
+    .support-card:nth-child(3) h3,
+    .quote-box:nth-child(3) h3 {
+      color: green;
+    }
+
+    .label-small {
+      display: inline-block;
+      margin-bottom: 10px;
+      background: yellow;
+      border: 2px solid black;
+      padding: 4px 8px;
+      font-size: 14px;
+      font-weight: bold;
+      transform: rotate(-3deg);
+    }
+
+    .final-cta {
+      text-align: center;
+      background: red;
+      color: white;
+      border: 6px solid black;
+    }
+
+    .final-cta h2 {
+      color: yellow;
+      text-shadow: 4px 4px 0 black;
+    }
+
+    .final-cta p {
+      font-size: 26px;
+      font-weight: bold;
+      line-height: 1.15;
+    }
+
+    .final-cta button {
+      background: yellow;
+      color: black;
+      font-size: 26px;
+      margin: 10px auto;
+    }
+
+    footer {
+      margin: 22px 0;
+      background: black;
+      color: white;
+      border: 5px solid red;
+      padding: 18px;
+      font-family: "Times New Roman", serif;
+      font-size: 18px;
+    }
+
+    footer h2 {
+      color: yellow;
+      text-shadow: 3px 3px 0 red;
+    }
+
+    .counter {
+      display: inline-block;
+      background: yellow;
+      color: black;
+      border: 4px solid white;
+      padding: 8px 12px;
+      margin-top: 10px;
+      font-family: monospace;
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .floating-sticker {
+      position: fixed;
+      right: 10px;
+      bottom: 10px;
+      z-index: 20;
+      background: lime;
+      border: 4px solid black;
+      padding: 8px 10px;
+      font-weight: bold;
+      transform: rotate(6deg);
+      box-shadow: 4px 4px 0 red;
+      font-size: 15px;
+    }
+
+    @media (min-width: 700px) {
+      .hero {
+        grid-template-columns: 1fr 0.9fr;
+        padding: 26px;
+      }
+
+      .story-grid {
+        grid-template-columns: 1.25fr 0.75fr;
+        align-items: center;
+      }
+
+      .ugly-list,
+      .support-grid,
+      .testimonials {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 980px) {
+      .support-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .testimonials {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 430px) {
+      .page {
+        padding: 8px;
+      }
+
+      .hero,
+      .section {
+        border-width: 4px;
+        padding: 14px;
+      }
+
+      .button-row {
+        flex-direction: column;
+      }
+
+      button,
+      .fake-button {
+        width: 100%;
+      }
+
+      .floating-sticker {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="top-warning">
+    <div class="marquee-text">BREAKING NEWS: bald science man need help pls • very emotional website • do not ignore walt • he do chem for family • this is serious maybe</div>
+  </div>
+
+  <div class="page">
+    <div class="serius-label blink">VERY SERIUS WEBSIT</div>
+
+    <main class="hero">
+      <section>
+        <h1>SAVE<br>WALT<br>PLS</h1>
+        <div class="hero-subtitle">
+          he do chem for family<br>
+          now he need ur help
+        </div>
+        <div class="tiny-drama">
+          he is not in danger<br>
+          he is the danger<br>
+          but also he is sad
+        </div>
+        <div class="button-row">
+          <button onclick="memeAlert('tank u for help bald man')">HELP NOW</button>
+          <button onclick="memeAlert('blue mone sent successful maybe')">SEND BLUE MONE</button>
+          <button onclick="memeAlert('ur prayer has reached bald server')">PRAY 4 WALT</button>
+        </div>
+      </section>
+
+      <section class="walt-card">
+        <span class="badge red">top bald man</span>
+        <span class="badge green">100% real maybe</span>
+        <svg class="walt-svg" viewBox="0 0 360 430" role="img" aria-label="cursed parody drawing of Walt">
+          <rect x="0" y="0" width="360" height="430" fill="#ffffff" />
+          <path d="M112 342 C120 275, 242 275, 252 342 L268 420 L92 420 Z" fill="#9cff74" stroke="#000" stroke-width="7" />
+          <path d="M122 342 L102 405" stroke="#000" stroke-width="7" />
+          <path d="M240 342 L260 405" stroke="#000" stroke-width="7" />
+          <path d="M88 180 C86 88, 142 36, 205 42 C274 48, 310 104, 296 193 C286 263, 241 310, 179 309 C120 308, 91 247, 88 180 Z" fill="#ffd9a1" stroke="#000" stroke-width="8" />
+          <path d="M105 83 C122 36, 181 22, 227 42 C177 30, 139 45, 105 83 Z" fill="#ffd9a1" stroke="#000" stroke-width="5" />
+          <circle cx="147" cy="162" r="32" fill="white" stroke="#000" stroke-width="7" />
+          <circle cx="232" cy="164" r="31" fill="white" stroke="#000" stroke-width="7" />
+          <circle cx="154" cy="169" r="7" fill="#000" />
+          <circle cx="224" cy="154" r="7" fill="#000" />
+          <path d="M179 161 C190 153, 198 153, 207 161" fill="none" stroke="#000" stroke-width="7" />
+          <path d="M113 145 C130 130, 153 128, 170 138" fill="none" stroke="#000" stroke-width="6" />
+          <path d="M211 137 C236 125, 259 132, 272 148" fill="none" stroke="#000" stroke-width="6" />
+          <path d="M183 174 C176 206, 172 218, 190 224" fill="none" stroke="#000" stroke-width="6" />
+          <path d="M143 239 C169 229, 210 230, 234 241" fill="none" stroke="#000" stroke-width="9" stroke-linecap="round" />
+          <path d="M154 266 C179 281, 211 281, 230 263" fill="none" stroke="#000" stroke-width="5" />
+          <path d="M97 205 C76 202, 70 230, 93 241" fill="#ffd9a1" stroke="#000" stroke-width="6" />
+          <path d="M296 207 C319 205, 322 234, 297 245" fill="#ffd9a1" stroke="#000" stroke-width="6" />
+          <path d="M79 368 C49 337, 49 300, 72 288" fill="none" stroke="#000" stroke-width="8" stroke-linecap="round" />
+          <circle cx="69" cy="285" r="12" fill="#ffd9a1" stroke="#000" stroke-width="5" />
+          <text x="180" y="402" text-anchor="middle" font-family="Comic Sans MS" font-size="28" font-weight="bold" fill="#000">pls...</text>
+        </svg>
+        <span class="badge blue">certified emotional website</span>
+      </section>
+    </main>
+
+    <section class="section yellow">
+      <h2>WHY HE NEED HELP</h2>
+      <p class="story-text">many bad thing happen to walt<br>some from life<br>some maybe from walt himself</p>
+      <ul class="ugly-list">
+        <li>⚠ he lose hair</li>
+        <li>★ he do too much chem</li>
+        <li>☹ hank make stress</li>
+        <li>!! jesse not always listen</li>
+        <li>☢ he say "i am danger" but he also tired</li>
+        <li>✿ family issue</li>
+        <li>☂ hat issue</li>
+        <li>✖ emotional damage</li>
+        <li>☀ too much bald</li>
+        <li>♡ not enough peace</li>
+      </ul>
+    </section>
+
+    <section class="section blue">
+      <h2>HIS STORIE</h2>
+      <div class="story-grid">
+        <div class="story-text">
+          <p>walt was normal teacher.</p>
+          <p>then life say "lol no".</p>
+          <p>then he become bald science man.</p>
+          <p>he wanted money for family.<br>but then thing get weird.</p>
+          <p>now he have stress.<br>he have chem.<br>he have too much lore.</p>
+          <p>some say he is danger.<br>we say he need hug.</p>
+        </div>
+        <aside class="fact-box">
+          IMPORTANT FACT:<br><br>
+          walt is humble family man<br>
+          and also chaotic chem goblin
+        </aside>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>DONATE 2 WALT</h2>
+      <p class="story-text">every donation help walt buy important thing like:</p>
+      <ul class="ugly-list">
+        <li>1 hat</li>
+        <li>1 glass</li>
+        <li>1 snack</li>
+        <li>1 emotional support chem</li>
+        <li>maybe better life</li>
+      </ul>
+      <div class="donation-box">
+        <div class="money">$17 raised of $999,999 goal</div>
+        <div class="progress-wrap"><div class="progress-fill"></div></div>
+        <p>progress is low because world has become cruel</p>
+        <div class="button-row">
+          <button onclick="memeAlert('$1 sent to bald cause')">$1 for bald support</button>
+          <button onclick="memeAlert('$5 sent with love and concern')">$5 for chem recovery maybe</button>
+          <button onclick="memeAlert('$10 sent. walt feel seen')">$10 for extra hope</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section green">
+      <h2>PEPL SAY</h2>
+      <div class="testimonials">
+        <article class="quote-box">
+          <h3>JESSE SAY:</h3>
+          <p>"yo mister white this site is messed up yo"</p>
+        </article>
+        <article class="quote-box">
+          <h3>SAUL SAY:</h3>
+          <p>"legaly speaking i was never here"</p>
+        </article>
+        <article class="quote-box">
+          <h3>HANK SAY:</h3>
+          <p>"why this bald guy look kinda familiar"</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section blue">
+      <h2>HOW U CAN HELP</h2>
+      <div class="support-grid">
+        <article class="support-card">
+          <span class="label-small">most popular</span>
+          <h3>SEND MONE</h3>
+          <p>help walt with bald-related emergency</p>
+        </article>
+        <article class="support-card">
+          <span class="label-small">very powerful</span>
+          <h3>SEND LOVE</h3>
+          <p>he may be danger but he still have feeling maybe</p>
+        </article>
+        <article class="support-card">
+          <span class="label-small">top bald choice</span>
+          <h3>SEND HAT</h3>
+          <p>sun is strong and bald is vulnerable</p>
+        </article>
+        <article class="support-card">
+          <span class="label-small">holy option</span>
+          <h3>SEND PRAYER</h3>
+          <p>direct spiritual support for science father</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section final-cta">
+      <h2>DON'T LET WALT BE SAD</h2>
+      <p>he cook for family<br>now website cry for him</p>
+      <button onclick="memeAlert('thank u for not ignoring bald man')">SAVE HIM PLS</button>
+      <p class="blink">TIME IS RUNNING OUT MAYBE</p>
+    </section>
+
+    <footer>
+      <h2>LEGAL THING</h2>
+      <p>
+        this website is parody.<br>
+        no real donation happen.<br>
+        walt is fictional here.<br>
+        baldness is real.<br>
+        stay safe.<br>
+        support ur local science man.
+      </p>
+      <div class="counter">VISITORS: 000420</div>
+    </footer>
+  </div>
+
+  <div class="floating-sticker blink">sad bald emergency</div>
+
+  <script>
+    function memeAlert(message) {
+      alert(message);
+    }
+  </script>
+</body>
+</html>
