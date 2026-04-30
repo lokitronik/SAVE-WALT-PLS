@@ -33,9 +33,9 @@
       color: var(--ink);
       font-family: Arial, Helvetica, sans-serif;
       background:
-        radial-gradient(circle at 20% 10%, rgba(57,184,255,0.16), transparent 20%),
-        radial-gradient(circle at 85% 25%, rgba(157,255,103,0.16), transparent 18%),
-        radial-gradient(circle at 15% 85%, rgba(255,212,59,0.22), transparent 20%),
+        radial-gradient(circle at 20% 10%, rgba(57,184,255,0.18), transparent 21%),
+        radial-gradient(circle at 85% 25%, rgba(157,255,103,0.18), transparent 18%),
+        radial-gradient(circle at 15% 85%, rgba(255,212,59,0.24), transparent 22%),
         linear-gradient(180deg, #f8f1d9 0%, #f3e4b8 100%);
       overflow-x: hidden;
     }
@@ -120,6 +120,7 @@
     .logo small {
       display: inline-block;
       background: var(--blue);
+      color: white;
       border: 2px solid var(--ink);
       padding: 3px 8px;
       border-radius: 999px;
@@ -141,7 +142,6 @@
       border-radius: 12px;
       font-size: 14px;
       font-weight: 800;
-      transform: rotate(0deg);
     }
 
     .hero {
@@ -161,9 +161,8 @@
     .hero::after {
       content: "";
       position: absolute;
-      inset: auto;
       pointer-events: none;
-      opacity: 0.18;
+      opacity: 0.20;
       border: 4px solid var(--ink);
       transform: rotate(-18deg);
     }
@@ -231,17 +230,17 @@
 
     h1 {
       margin: 0;
-      font-size: clamp(48px, 9vw, 96px);
-      line-height: 0.88;
+      font-size: clamp(50px, 10vw, 104px);
+      line-height: 0.86;
       letter-spacing: 1px;
       font-family: Impact, "Arial Black", sans-serif;
       color: #0d0d0d;
-      text-shadow: 4px 4px 0 var(--yellow);
+      text-shadow: 4px 4px 0 var(--yellow), 7px 7px 0 rgba(57,184,255,0.8);
     }
 
     .ticker-name {
       margin-top: 8px;
-      font-size: clamp(32px, 5vw, 58px);
+      font-size: clamp(34px, 6vw, 64px);
       line-height: 1;
       font-weight: 900;
       font-family: "Comic Sans MS", Arial, sans-serif;
@@ -250,10 +249,10 @@
 
     .hero-lead {
       margin: 16px 0 0;
-      font-size: 20px;
-      line-height: 1.42;
-      font-weight: 750;
-      max-width: 620px;
+      font-size: 22px;
+      line-height: 1.34;
+      font-weight: 850;
+      max-width: 640px;
     }
 
     .hero-mini {
@@ -263,8 +262,8 @@
       border: 3px dashed var(--ink);
       border-radius: 14px;
       padding: 10px 12px;
-      font-size: 15px;
-      font-weight: 800;
+      font-size: 16px;
+      font-weight: 900;
       transform: rotate(-1deg);
     }
 
@@ -369,6 +368,7 @@
       font-family: "Comic Sans MS", Arial, sans-serif;
       font-weight: 900;
       transform: rotate(6deg);
+      z-index: 3;
     }
 
     .walt-img {
@@ -442,6 +442,10 @@
       background: linear-gradient(180deg, #fff8ea 0%, #f0dfb9 100%);
     }
 
+    .section.red {
+      background: linear-gradient(180deg, #fff3f3 0%, #ffd6d6 100%);
+    }
+
     .section-head {
       display: flex;
       align-items: center;
@@ -465,7 +469,7 @@
 
     h2 {
       margin: 0;
-      font-size: clamp(30px, 5vw, 56px);
+      font-size: clamp(32px, 5vw, 58px);
       line-height: 0.95;
       font-family: Impact, "Arial Black", sans-serif;
     }
@@ -474,7 +478,7 @@
       margin: 0 0 12px;
       font-size: 18px;
       line-height: 1.45;
-      font-weight: 650;
+      font-weight: 700;
     }
 
     .grid-2,
@@ -506,7 +510,7 @@
       margin: 0;
       font-size: 17px;
       line-height: 1.4;
-      font-weight: 650;
+      font-weight: 700;
     }
 
     .mini-tag {
@@ -538,6 +542,7 @@
       border-radius: 18px;
       box-shadow: var(--shadow);
       padding: 12px;
+      font-weight: 800;
     }
 
     .percent {
@@ -587,7 +592,7 @@
       padding: 14px;
       margin-top: 12px;
       font-size: 17px;
-      font-weight: 700;
+      font-weight: 800;
     }
 
     .cta {
@@ -603,10 +608,10 @@
 
     .cta-big {
       margin: 14px auto 0;
-      max-width: 720px;
+      max-width: 760px;
       font-size: 21px;
       line-height: 1.4;
-      font-weight: 800;
+      font-weight: 850;
     }
 
     .footer {
@@ -742,7 +747,7 @@
 </head>
 <body>
   <div class="top-ticker">
-    <span>BREAKING: he cook. we pump. pls. • $WALTPLS is meme token for bald science man • blue mone maybe • chart not guarantee • very legal maybe • jessie buy pls • danger zone •</span>
+    <span>BREAKING: i hav canser • i hav family • i hav chem • now i hav token • $WALTPLS is meme token for bald science man • chart maybe live • hank maybe arrive • pls behave •</span>
   </div>
   <div class="warning-tape"></div>
 
@@ -764,21 +769,25 @@
     <section class="hero">
       <div class="hero-copy">
         <div class="badge-row">
-          <span class="badge yellow">meme token</span>
-          <span class="badge blue">blue mone</span>
-          <span class="badge green">very pure maybe</span>
-          <span class="badge red">he cook</span>
+          <span class="badge yellow">100% pure meme</span>
+          <span class="badge blue">blue mone aproved</span>
+          <span class="badge green">very legal maybe</span>
+          <span class="badge red">bald man emergency</span>
         </div>
 
-        <div class="overline">very seriuz bald project</div>
+        <div class="overline">lab tested maybe. soul damaged definitely.</div>
 
         <h1>SAVE<br>WALT<br>PLS</h1>
         <div class="ticker-name">$WALTPLS</div>
 
         <p class="hero-lead">
-          he cook. we pump.<br>
-          cursed meme coin for bald science man.<br>
-          not normal token. very emotional token.
+          i hav canser<br>
+          i hav family<br>
+          i hav chem<br>
+          now i hav token<br><br>
+          he cook.<br>
+          we cope.<br>
+          chart maybe live.
         </p>
 
         <div class="hero-mini">
@@ -787,14 +796,14 @@
         </div>
 
         <div class="contract-box">
-          <div class="contract-title">CA PLS</div>
+          <div class="contract-title">CA OR DIE TRYING</div>
           <div class="contract-text" id="contractText">PASTE_YOUR_CONTRACT_ADDRESS_HERE</div>
           <button class="btn yellow" onclick="copyContract()">COPY CA</button>
         </div>
 
         <div class="button-row">
-          <a class="btn red" href="#buy">BUY $WALTPLS</a>
-          <a class="btn blue" href="#tokenomics">TOKENOMICS</a>
+          <a class="btn red" href="#buy">BUY BEFORE HANK ARRIVE</a>
+          <a class="btn blue" href="#tokenomics">TOKENOMICS OF PAIN</a>
           <a class="btn green" href="#risk">NO FINANSHUL ADVISE</a>
         </div>
       </div>
@@ -810,7 +819,7 @@
         </div>
 
         <div class="sticker-grid">
-          <div class="sticker">100% pure meme</div>
+          <div class="sticker">lab tested maybe</div>
           <div class="sticker">tiny hat energy</div>
           <div class="sticker">chart pls go up</div>
           <div class="sticker">blue crystal aproved</div>
@@ -821,35 +830,34 @@
     <section id="about" class="section green">
       <div class="section-head">
         <h2>WHAT DIS TOKEN??</h2>
-        <span class="section-tag">bald lore</span>
+        <span class="section-tag">terminally online lore</span>
       </div>
 
       <p>
-        $WALTPLS is meme token from internet chaos, blue crystal energy, desert pain,
-        and one bald man who maybe cook too much.
+        $WALTPLS is meme coin born from canser, chemistry, family drama and one bald man who refuse to get normal job.
       </p>
       <p>
-        No fake utiliti. No fake guru talk. No fake revolution.
-        Just meme, community, chart drama, and a mascot that look like he need hug and liquidity.
+        no utility. no miracle. no fake guru roadmap.
+        just blue mone, desert trauma and pepl yelling "pls pump" in chat.
       </p>
 
       <div class="grid-3">
         <article class="card">
-          <span class="mini-tag">meme ferst</span>
-          <h3>he cook</h3>
-          <p>this token exist becuz somebody had to cook. not food. just meme and emotional volatility.</p>
+          <span class="mini-tag">THE COOK</span>
+          <h3>he cook liquidity</h3>
+          <p>he cook for family. then for ego. now for liquidity. pls do not inhale chart.</p>
         </article>
 
         <article class="card">
-          <span class="mini-tag">series vibe</span>
-          <h3>blue mone</h3>
-          <p>blue crystal aesthetic, lab panic, danger face and tiny hat culture. u get the idea very fast.</p>
+          <span class="mini-tag">THE CANSER</span>
+          <h3>portfolio look worse</h3>
+          <p>i hav canser. but portfolio look worse. very sad. very bullish maybe.</p>
         </article>
 
         <article class="card">
-          <span class="mini-tag">clear enough</span>
-          <h3>meme coin only</h3>
-          <p>if u buy, u know wat dis is. meme coin. not holy grail. not retirement plan. pls behave.</p>
+          <span class="mini-tag">THE CHART</span>
+          <h3>danger candle</h3>
+          <p>chart go up: walt smile. chart go down: walt become danger again.</p>
         </article>
       </div>
     </section>
@@ -860,29 +868,37 @@
         <span class="section-tag">he need support maybe</span>
       </div>
 
+      <p>
+        becuz he bald. becuz he broke. becuz healthcare expensive. becuz jesse no listen.
+        becuz skyler maybe dump bag.
+      </p>
+      <p>
+        also becuz every chain need one emotionally unstable chemistry token.
+      </p>
+
       <div class="grid-4">
         <article class="card">
-          <span class="mini-tag">THE COOK</span>
-          <h3>he cook for family</h3>
-          <p>then internet say: what if we make token and turn pain into community event.</p>
+          <span class="mini-tag">BALD EMERGENCY</span>
+          <h3>sun hit head</h3>
+          <p>sun hit head. chart hit soul. man need liquidity.</p>
         </article>
 
         <article class="card">
-          <span class="mini-tag">THE HAT</span>
-          <h3>tiny black hat</h3>
-          <p>small hat. big aura. maximum respect. maybe 14% extra danger.</p>
+          <span class="mini-tag">BLUE ROCK ECONOMY</span>
+          <h3>not candy</h3>
+          <p>not drug. not candy. just very iconic meme crystal for internet goblin.</p>
         </article>
 
         <article class="card">
-          <span class="mini-tag">THE BLUE</span>
-          <h3>blue crystal vibe</h3>
-          <p>not real crystal. just very iconic blue chaos for very unserious internet finance.</p>
+          <span class="mini-tag">FAMILY MAN MAYBE</span>
+          <h3>everyone coping</h3>
+          <p>he say family. we say tokenomics. everyone coping.</p>
         </article>
 
         <article class="card">
-          <span class="mini-tag">THE DANGER</span>
-          <h3>he not in danger</h3>
-          <p>he is the memecoin. chart open. emotions open. no one ready.</p>
+          <span class="mini-tag">DANGER MODE</span>
+          <h3>market cap</h3>
+          <p>he is not in danger. he is the market cap.</p>
         </article>
       </div>
 
@@ -899,33 +915,33 @@
 
       <div class="grid-4">
         <article class="card">
-          <span class="mini-tag">step 1</span>
-          <h3>get walet</h3>
-          <p>install ur chain wallet and prepare emotionaly for very bald future.</p>
+          <span class="mini-tag">STEP 1</span>
+          <h3>GET WALET</h3>
+          <p>install wallet. protect seed phrase. do not write it on burger receipt like idiot.</p>
         </article>
 
         <article class="card">
-          <span class="mini-tag">step 2</span>
-          <h3>add fund</h3>
-          <p>only use mone u can lose without dramatic speech in desert.</p>
+          <span class="mini-tag">STEP 2</span>
+          <h3>ADD MONE</h3>
+          <p>use only mone u can lose. rent mone is not meme mone.</p>
         </article>
 
         <article class="card">
-          <span class="mini-tag">step 3</span>
-          <h3>paste CA</h3>
-          <p>paste contract adress, verify it twice, then swap for $WALTPLS.</p>
+          <span class="mini-tag">STEP 3</span>
+          <h3>COPY CA</h3>
+          <p>copy contract. verify twice. fake CA = u got cooked.</p>
         </article>
 
         <article class="card">
-          <span class="mini-tag">step 4</span>
-          <h3>hold or cri</h3>
-          <p>chart go up. chart go down. bald man remain. this is token life.</p>
+          <span class="mini-tag">STEP 4</span>
+          <h3>BUY OR CRI</h3>
+          <p>swap. hold. panic. refresh chart 400 time. become scientist of pain.</p>
         </article>
       </div>
 
       <div class="button-row">
         <a class="btn red" href="#">DEX LINK SOON PLS</a>
-        <a class="btn blue" href="#">CHART SOON MAYBE</a>
+        <a class="btn blue" href="#">VIEW CHART PAIN</a>
       </div>
     </section>
 
@@ -944,7 +960,7 @@
           <div class="percent">50%</div>
           <div>
             <strong>Liquidity</strong><br>
-            becuz token need place to emotionaly collapse.
+            so chart not die in first 4 minute. hopefully.
           </div>
         </div>
 
@@ -952,7 +968,7 @@
           <div class="percent">15%</div>
           <div>
             <strong>Marketing</strong><br>
-            meme, raid, banner, bald propaganda.
+            bald propaganda, raid, cursed banner and emotional manipulation.
           </div>
         </div>
 
@@ -960,7 +976,7 @@
           <div class="percent">10%</div>
           <div>
             <strong>CEX / future liquidity</strong><br>
-            for later chaos expand if gods allow.
+            for wen pepl ask "wen listing" every 6 second.
           </div>
         </div>
 
@@ -968,15 +984,15 @@
           <div class="percent">10%</div>
           <div>
             <strong>Community</strong><br>
-            giveaway, contest and “pls save chart” moment.
+            giveaway, meme contest, trauma bonding and group hallucination.
           </div>
         </div>
 
         <div class="token-row">
           <div class="percent">10%</div>
           <div>
-            <strong>Burn / meme event</strong><br>
-            sometimes lab must explode a bit.
+            <strong>Burn</strong><br>
+            becuz sometimes lab explode and everybody clap.
           </div>
         </div>
 
@@ -984,7 +1000,7 @@
           <div class="percent">5%</div>
           <div>
             <strong>Team</strong><br>
-            two tired pepl and one questionable idea.
+            two pepl, one braincell, infinite bad decision.
           </div>
         </div>
       </div>
@@ -996,23 +1012,29 @@
         <span class="section-tag">danger progres</span>
       </div>
 
-      <div class="grid-3">
+      <div class="grid-4">
         <article class="card roadmap-step">
           <span class="mini-tag">PHASE 1</span>
-          <h3>release bald creature</h3>
-          <p>make websit, deploy token, publish contract, open portal to meme damage.</p>
+          <h3>DIAGNOSIS</h3>
+          <p>make websit. draw bald creature. deploy token. tell nobody this was good idea.</p>
         </article>
 
         <article class="card roadmap-step">
           <span class="mini-tag">PHASE 2</span>
-          <h3>meme everywere</h3>
-          <p>raid socials, grow comuniti, spread sticker, watch chart, say “yo” sometimes.</p>
+          <h3>COOK</h3>
+          <p>launch. raid. meme. refresh chart. pretend we calm.</p>
         </article>
 
         <article class="card roadmap-step">
           <span class="mini-tag">PHASE 3</span>
-          <h3>full bald dominance</h3>
-          <p>listing maybe, more art, more chaos, more lore, more completely unnecessary confidence.</p>
+          <h3>DANGER</h3>
+          <p>community grow. blue mone spread. hat become religion. hank start asking question.</p>
+        </article>
+
+        <article class="card roadmap-step">
+          <span class="mini-tag">PHASE 4</span>
+          <h3>TERMINAL BULLISH</h3>
+          <p>maybe listing. maybe zero. maybe generational wealth. hu nows. pls behave.</p>
         </article>
       </div>
     </section>
@@ -1023,43 +1045,51 @@
       </div>
 
       <p class="cta-big">
-        he cook for us.<br>
-        now u buy for him.<br><br>
-        $WALTPLS is not normal project.<br>
-        it is cursed cultural event for pepl who understand internet damage.
+        he cook for family.<br>
+        now u buy for lore.<br><br>
+        $WALTPLS is not investment.<br>
+        it is emotional damage with contract address.<br><br>
+        save walt. save chart. save urself maybe.
       </p>
 
       <div class="button-row" style="justify-content:center;">
         <a class="btn red" href="#buy">BUY NOW PLS</a>
-        <a class="btn yellow" href="#about">LEARN DIS TOKEN</a>
+        <button class="btn yellow" onclick="copyContract()">COPY CA</button>
+        <a class="btn blue" href="#about">ENTER LAB</a>
       </div>
     </section>
 
-    <section id="risk" class="section yellow">
+    <section id="risk" class="section red">
       <div class="section-head">
         <h2>NO FINANSHUL ADVISE</h2>
         <span class="section-tag">important legal thing</span>
       </div>
 
       <p>
-        $WALTPLS is meme token. it have no guarantee value, no promise, no safety net,
-        and no magical bald utiliti.
+        $WALTPLS is meme coin. it have no guarantee. no cure canser. no fix ur life.
+        no save ur marriage. no pay ur rent.
       </p>
       <p>
-        crypto risky. meme coin very risky. do ur own research and do not spend mone
-        u cannot afford to lose.
+        it maybe go up. it maybe go down. it maybe go straight to bald hell.
       </p>
+      <p>
+        crypto risky. meme coin extra risky. do ur own research and do not spend mone
+        u need for food, rent, medicine or lawyer.
+      </p>
+
       <div class="quote">
-        not affiliated with Breaking Bad, AMC, Sony, Walter White, Heisenberg or any official thing.
-        this is parody meme websit. calm down pls.
+        if u buy, u know wat dis is: meme coin. not holy grail. not retirement plan.
+        maybe financial mistake. maybe generational wealth. hu nows. pls behave.
       </div>
     </section>
 
     <footer class="footer">
       <strong>$WALTPLS</strong><br>
-      parody meme token websit for bald science chaos. no real promise. no finanshul advise. meme responsibli.
+      parody meme token websit for bald science chaos.
       <br><br>
-      support ur local meme goblin. verify contract before buy.
+      not affiliated with Breaking Bad, AMC, Sony, Walter White, Heisenberg, chemistry teacher, canser, hats, deserts, RVs, blue crystals or emotional damaged charts.
+      <br><br>
+      no real promise. no finanshul advise. meme responsibli. verify contract before buy or get cooked.
       <br>
       <div class="counter">VISITORS: 00042069</div>
     </footer>
