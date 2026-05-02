@@ -626,6 +626,83 @@
       line-height: 1.55;
     }
 
+    .link-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .official-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      background: white;
+      border: 4px solid var(--ink);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      padding: 14px;
+      font-weight: 900;
+    }
+
+    .official-link span {
+      display: block;
+      font-size: 13px;
+      font-weight: 800;
+      opacity: 0.85;
+      margin-top: 3px;
+    }
+
+    .official-link strong {
+      font-family: "Comic Sans MS", Arial, sans-serif;
+      font-size: 20px;
+    }
+
+    .sticky-buy-bar {
+      position: fixed;
+      left: 8px;
+      right: 8px;
+      bottom: 8px;
+      z-index: 999;
+      display: none;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 7px;
+      background: var(--ink);
+      border: 4px solid var(--yellow);
+      border-radius: 18px;
+      padding: 7px;
+      box-shadow: 0 0 0 3px var(--ink);
+    }
+
+    .sticky-buy-bar a,
+    .sticky-buy-bar button {
+      min-height: 46px;
+      border: 3px solid var(--ink);
+      border-radius: 12px;
+      background: var(--yellow);
+      color: var(--ink);
+      font-family: "Comic Sans MS", Arial, sans-serif;
+      font-size: 13px;
+      font-weight: 900;
+      text-align: center;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px;
+    }
+
+    .sticky-buy-bar a:first-child {
+      background: var(--red);
+      color: white;
+    }
+
+    .sticky-buy-bar a:last-child {
+      background: var(--blue);
+      color: white;
+    }
+
     .footer strong {
       color: var(--yellow);
     }
@@ -665,6 +742,10 @@
       }
 
       .tokenomics {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .link-grid {
         grid-template-columns: repeat(2, 1fr);
       }
     }
@@ -741,6 +822,14 @@
 
       .token-row {
         grid-template-columns: 68px 1fr;
+      }
+
+      body {
+        padding-bottom: 82px;
+      }
+
+      .sticky-buy-bar {
+        display: grid;
       }
     }
   </style>
@@ -1059,6 +1148,72 @@
       </div>
     </section>
 
+    <section class="section yellow">
+      <div class="section-head">
+        <h2>HOW NOT 2 GET COOKED</h2>
+        <span class="section-tag">anti scam bald tips</span>
+      </div>
+
+      <div class="grid-2">
+        <article class="card">
+          <span class="mini-tag">CHECK CA</span>
+          <h3>verify twice</h3>
+          <p>copy contract from dis websit or official pump.fun link. fake CA = u got cooked.</p>
+        </article>
+
+        <article class="card">
+          <span class="mini-tag">NO RENT MONE</span>
+          <h3>meme mone only</h3>
+          <p>rent mone is not meme mone. food mone is not meme mone. lawyer mone also maybe keep.</p>
+        </article>
+
+        <article class="card">
+          <span class="mini-tag">FAKE BALD</span>
+          <h3>trust no reply guy</h3>
+          <p>random DM say “send wallet for airdrop”? congrats, that is not walt, that is goblin.</p>
+        </article>
+
+        <article class="card">
+          <span class="mini-tag">CHART PAIN</span>
+          <h3>do not cry in chat</h3>
+          <p>if u panic sell then it pump, this is not bug. this is ancient meme law.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section blue">
+      <div class="section-head">
+        <h2>OFFISHUL LINKS</h2>
+        <span class="section-tag">only real bald portals</span>
+      </div>
+
+      <div class="link-grid">
+        <a class="official-link" href="https://pump.fun/coin/PASTE_YOUR_CONTRACT_ADDRESS_HERE" target="_blank" rel="noopener noreferrer">
+          <div><strong>PUMP.FUN</strong><span>buy here or get lost in desert</span></div>
+          <div>↗</div>
+        </a>
+
+        <a class="official-link" href="https://dexscreener.com/solana/PASTE_YOUR_CONTRACT_ADDRESS_HERE" target="_blank" rel="noopener noreferrer">
+          <div><strong>CHART</strong><span>watch pain become candle</span></div>
+          <div>↗</div>
+        </a>
+
+        <a class="official-link" href="https://x.com/PASTE_YOUR_X" target="_blank" rel="noopener noreferrer">
+          <div><strong>X / TWITTER</strong><span>bald propaganda and bad decision</span></div>
+          <div>↗</div>
+        </a>
+
+        <a class="official-link" href="https://t.me/PASTE_YOUR_TELEGRAM" target="_blank" rel="noopener noreferrer">
+          <div><strong>TELEGRAM</strong><span>stickers live there. chart pain too.</span></div>
+          <div>↗</div>
+        </a>
+      </div>
+
+      <div class="quote">
+        official links only. if some bald goblin DM u first, block and continue cooking.
+      </div>
+    </section>
+
     <section id="risk" class="section red">
       <div class="section-head">
         <h2>NO FINANSHUL ADVISE</h2>
@@ -1093,6 +1248,12 @@
       <br>
       <div class="counter">VISITORS: 00042069</div>
     </footer>
+  </div>
+
+  <div class="sticky-buy-bar" aria-label="Quick action bar">
+    <a href="https://pump.fun/coin/PASTE_YOUR_CONTRACT_ADDRESS_HERE" target="_blank" rel="noopener noreferrer">BUY</a>
+    <button onclick="copyContract()">COPY CA</button>
+    <a href="https://dexscreener.com/solana/PASTE_YOUR_CONTRACT_ADDRESS_HERE" target="_blank" rel="noopener noreferrer">CHART</a>
   </div>
 
   <script>
